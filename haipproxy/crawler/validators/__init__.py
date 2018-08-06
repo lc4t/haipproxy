@@ -13,12 +13,11 @@ the task key to HttpBinInitValidator's https_tasks or http_tasks
 from .httpbin import (
     HttpBinInitValidator, HttpValidator,
     HttpsValidator)
-from .zhihu import ZhiHuValidator
-from .weibo import WeiBoValidator
+from .bili import BiliValidator
+
 
 
 all_validators = [
     HttpBinInitValidator, HttpValidator,
-    HttpsValidator, WeiBoValidator,
-    ZhiHuValidator
+    HttpsValidator, BiliValidator
 ]

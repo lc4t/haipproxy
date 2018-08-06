@@ -9,11 +9,9 @@ from ..config.settings import (
     VALIDATED_HTTPS_QUEUE, TEMP_HTTP_QUEUE,
     TEMP_HTTPS_QUEUE, TTL_HTTP_QUEUE,
     TTL_HTTPS_QUEUE, SPEED_HTTPS_QUEUE,
-    SPEED_HTTP_QUEUE, TEMP_WEIBO_QUEUE,
-    VALIDATED_WEIBO_QUEUE, TTL_WEIBO_QUEUE,
-    SPEED_WEIBO_QUEUE, TEMP_ZHIHU_QUEUE,
-    VALIDATED_ZHIHU_QUEUE, TTL_ZHIHU_QUEUE,
-    SPEED_ZHIHU_QUEUE)
+    SPEED_HTTP_QUEUE, TEMP_BILI_QUEUE,
+    VALIDATED_BILI_QUEUE, TTL_BILI_QUEUE,
+    SPEED_BILI_QUEUE)
 
 
 __all__ = ['CRAWLER_TASKS', 'VALIDATOR_TASKS', 'CRAWLER_TASK_MAPS',
@@ -751,16 +749,9 @@ VALIDATOR_TASKS = [
         'enable': 1,
     },
     {
-        'name': 'weibo',
-        'task_queue': TEMP_WEIBO_QUEUE,
-        'resource': VALIDATED_WEIBO_QUEUE,
-        'interval': 5,
-        'enable': 1,
-    },
-    {
-        'name': 'zhihu',
-        'task_queue': TEMP_ZHIHU_QUEUE,
-        'resource': VALIDATED_ZHIHU_QUEUE,
+        'name': 'bili',
+        'task_queue': TEMP_BILI_QUEUE,
+        'resource': VALIDATED_BILI_QUEUE,
         'interval': 5,
         'enable': 1,
     },
@@ -771,37 +762,32 @@ TEMP_TASK_MAPS = {
     'init': INIT_HTTP_QUEUE,
     'http': TEMP_HTTP_QUEUE,
     'https': TEMP_HTTPS_QUEUE,
-    'weibo': TEMP_WEIBO_QUEUE,
-    'zhihu': TEMP_ZHIHU_QUEUE
+    'bili': TEMP_BILI_QUEUE
 }
 
 # target website that use http protocol
-HTTP_TASKS = ['http']
+HTTP_TASKS = ['http', 'bili']
 
 # target website that use https protocol
-HTTPS_TASKS = ['https', 'zhihu', 'weibo']
+HTTPS_TASKS = ['https', 'bili',]
 
 # todo the three maps may be combined in one map
 # validator scheduler and clients will fetch proxies from the following queues
 SCORE_MAPS = {
     'http': VALIDATED_HTTP_QUEUE,
     'https': VALIDATED_HTTPS_QUEUE,
-    'weibo': VALIDATED_WEIBO_QUEUE,
-    'zhihu': VALIDATED_ZHIHU_QUEUE
+    'bili': VALIDATED_BILI_QUEUE
 }
 
 # validator scheduler and clients will fetch proxies from the following queues which are verified recently
 TTL_MAPS = {
     'http': TTL_HTTP_QUEUE,
     'https': TTL_HTTPS_QUEUE,
-    'weibo': TTL_WEIBO_QUEUE,
-    'zhihu': TTL_ZHIHU_QUEUE
+    'bili': TTL_BILI_QUEUE
 }
 
 SPEED_MAPS = {
     'http': SPEED_HTTP_QUEUE,
     'https': SPEED_HTTPS_QUEUE,
-    'weibo': SPEED_WEIBO_QUEUE,
-    'zhihu': SPEED_ZHIHU_QUEUE
+    'bili': SPEED_BILI_QUEUE
 }
-

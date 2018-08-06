@@ -16,9 +16,6 @@ click==6.7
 constantly==15.1.0
 cryptography==2.1.4
 cssselect==1.0.3
-docker==2.7.0
-docker-compose==1.19.0
-docker-pycreds==0.2.2
 dockerpty==0.4.1
 docopt==0.6.2
 flower==0.9.1

@@ -59,7 +59,7 @@ LOG_LEVEL = 'DEBUG'
 # if some value is empty, set like this: key = ''
 REDIS_HOST = '127.0.0.1'
 REDIS_PORT = 6379
-REDIS_PASSWORD = '123456'
+REDIS_PASSWORD = ''
 REDIS_DB = 0
 
 # scheduler settings
@@ -91,27 +91,25 @@ VALIDATOR_FEED_SIZE = 50
 # they are temp sets, come from init queue, in order to filter transparnt ip
 TEMP_HTTP_QUEUE = 'haipproxy:http:temp'
 TEMP_HTTPS_QUEUE = 'haipproxy:https:temp'
-TEMP_WEIBO_QUEUE = 'haipproxy:weibo:temp'
-TEMP_ZHIHU_QUEUE = 'haipproxy:zhihu:temp'
+
+TEMP_BILI_QUEUE = 'haipproxy:bili:temp'
 
 # valited queues are zsets.squid and other clients fetch ip resources from them.
 VALIDATED_HTTP_QUEUE = 'haipproxy:validated:http'
 VALIDATED_HTTPS_QUEUE = 'haipproxy:validated:https'
-VALIDATED_WEIBO_QUEUE = 'haipproxy:validated:weibo'
-VALIDATED_ZHIHU_QUEUE = 'haipproxy:validated:zhihu'
+VALIDATED_BILI_QUEUE = 'haipproxy:validated:bili'
 
 # time to live of proxy ip resources
 TTL_VALIDATED_RESOURCE = 2  # minutes
 TTL_HTTP_QUEUE = 'haipproxy:ttl:http'
 TTL_HTTPS_QUEUE = 'haipproxy:ttl:https'
-TTL_WEIBO_QUEUE = 'haipproxy:ttl:weibo'
-TTL_ZHIHU_QUEUE = 'haipproxy:ttl:zhihu'
+TTL_BILI_QUEUE = 'haipproxy:ttl:bili'
 
 # queue for proxy speed
 SPEED_HTTP_QUEUE = 'haipproxy:speed:http'
 SPEED_HTTPS_QUEUE = 'haipproxy:speed:https'
-SPEED_WEIBO_QUEUE = 'haipproxy:speed:weibo'
-SPEED_ZHIHU_QUEUE = 'haipproxy:speed:zhihu'
+
+SPEED_BILI_QUEUE = 'haipproxy:speed:bili'
 
 # squid settings on linux os
 # execute sudo chown -R $USER /etc/squid/ and
@@ -119,6 +117,11 @@ SPEED_ZHIHU_QUEUE = 'haipproxy:speed:zhihu'
 SQUID_BIN_PATH = '/usr/sbin/squid'  # mac os '/usr/local/sbin/squid'
 SQUID_CONF_PATH = '/etc/squid/squid.conf'  # mac os '/usr/local/etc/squid.conf'
 SQUID_TEMPLATE_PATH = '/etc/squid/squid.conf.backup'  # mac os /usr/local/etc/squid.conf.backup
+
+# mac
+# SQUID_BIN_PATH = '/usr/local/sbin/squid'  # mac os '/usr/local/sbin/squid'
+# SQUID_CONF_PATH = '/usr/local/etc/squid.conf'  # mac os '/usr/local/etc/squid.conf'
+# SQUID_TEMPLATE_PATH = '/usr/local/etc/squid.conf.backup'  # mac os /usr/local/etc/squid.conf.backup
 
 # client settings
 
@@ -141,7 +144,7 @@ ORIGIN_IP = ''
 # sentry for error tracking, for more information see
 # https://github.com/getsentry/sentry
 # disable it by setting USE_SENTRY = False
-USE_SENTRY = True
+USE_SENTRY = False
 SENTRY_DSN = 'http://82c130028fa942f29add1e0aa0ff9cbd:cffa174304d248b9aa2bdb385d3b01b8@127.0.0.1:9000/6'
 
 # prometheus for monitoring, for more information see
